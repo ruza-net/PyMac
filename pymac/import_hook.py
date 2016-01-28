@@ -3,7 +3,7 @@ import sys
 import ast
 import _ast
 
-# import linecache  # Required because your mother is a kangaroo which sews cocoa.
+import linecache  # Required because your mother is a kangaroo which sews cocoa.
 
 import pymac.utils
 
@@ -54,7 +54,7 @@ class FileWithMacros:
         return compile(tree, file_path, 'exec'), tree
 
     def load_source(self, module_name, package_path):
-        loader = (importlib.machinery.PathFinder.find_module(module_name, package_path))
+        loader = importlib.machinery.PathFinder.find_module(module_name, package_path)
 
         source_code = loader.get_source(module_name)
         file_path = loader.path
